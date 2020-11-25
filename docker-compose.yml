@@ -1,0 +1,14 @@
+---
+version: '3.4'
+
+services:
+  ctn1:
+    image: "busybox"
+    command: ["sh", "-c", "while true; do date; done"]
+    logging:
+      driver: journald
+      options:
+        tag: "ctn1"
+        mode: "non-blocking"
+        max-buffer-size: "5b"
+        # mode: "blocking"
